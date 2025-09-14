@@ -16,6 +16,11 @@ args = vars(arg_p.parse_args())
 print("[INFO] loading model...")
 net = cv2.dnn.readNetFromCaffe(args["prototxt"], args["model"])
 
+#initialize the video stream and allow the camera sensor to warm up
+print("[INFO] starting video stream...")
+vs = VideoStream(src=0).start()
+time.sleep(2.0)
+
 image = cv2.imread(args["image"])
 (h, w) = image.shape[:2]
 blob = cv2.dnn.blobFromImage(cv2.resize(image, (400, 400)), 1.0, (400, 400), (104.0, 177.0, 123.0))
