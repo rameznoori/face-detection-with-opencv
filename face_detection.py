@@ -1,6 +1,10 @@
 import numpy as np
 import argparse
 import cv2
+#import packages for video/webcam detection
+from imutils.video import VideoStream
+import imutils
+import time
 
 arg_p = argparse.ArgumentParser()
 arg_p.add_argument("-i", "--image", required=True, help="Path to input image")
